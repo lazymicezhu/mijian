@@ -12,6 +12,7 @@ label { display: block; margin-bottom: 8px; font-weight: 550; }
 .password-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 8px; }
 .password-label label { margin: 0; }
 #password-hint { color: #73737a; font-size: 13px; }
+#login-button { margin-top: 18px; }
 textarea, input { display: block; width: 100%; border: 1px solid #d9d9df; border-radius: 7px; background: #fff; color: #242427; font: inherit; padding: 11px 12px; outline: none; }
 textarea { min-height: 200px; resize: vertical; line-height: 1.7; }
 textarea:focus, input:focus { border-color: #5959b4; box-shadow: 0 0 0 3px #5959b410; }
