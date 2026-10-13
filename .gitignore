@@ -1,0 +1,29 @@
+# Dependencies and generated output
+node_modules/
+coverage/
+dist/
+*.log
+
+# Private runtime configuration and secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+instance.json
+*.pem
+*.key
+
+# Persistent databases and local backups
+.data/
+data/
+backups/
+*.sqlite*
+*.db
+*.db-*
+
+# Local tooling and system files
+.wrangler/
+.DS_Store
+Thumbs.db
+*.swp

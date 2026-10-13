@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="输入文字，生成需要共用密码才能查看的短链接。">
+  <meta name="referrer" content="no-referrer">
+  <title>文字短链接</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header id="page-header" hidden>
+      <h1><a href="/">文字短链接</a></h1>
+      <button id="logout" class="text-button" type="button" hidden>退出</button>
+    </header>
+    <p id="intro" class="intro" hidden>正在打开…</p>
+    <section id="loading-panel" class="panel" aria-label="加载中">
+      <p class="muted">正在检查登录状态…</p>
+    </section>
+
+    <section id="login-panel" class="panel" aria-label="输入访问密码" hidden>
+      <form id="login-form">
+        <div class="password-label">
+          <label for="password">访问密码</label>
+          <span id="password-hint">提示：高中某黄姓老师全称</span>
+        </div>
+        <input id="password" type="text" inputmode="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="输入共用密码" aria-describedby="password-hint" required maxlength="1024">
+        <p class="hint">同一浏览器记住登录状态 30 天。</p>
+        <button id="login-button" class="primary" type="submit">进入</button>
+        <p id="login-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="compose-panel" class="panel" aria-label="生成文字短链接" hidden>
+      <form id="compose-form">
+        <label for="message-input">文字</label>
+        <textarea id="message-input" placeholder="输入想分享的文字…" spellcheck="false" maxlength="100000"></textarea>
+        <div class="actions">
+          <button id="create-button" class="primary" type="submit" disabled>生成链接并复制</button>
+        </div>
+        <p id="compose-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+      <div id="result" class="result" hidden>
+        <div class="result-head">
+          <span>分享链接</span>
+          <button id="copy-link" class="text-button" type="button">复制链接</button>
+        </div>
+        <a id="result-link" class="result-link"></a>
+        <p class="hint">知道共用密码的人，可以打开链接查看文字。</p>
+      </div>
+    </section>
+
+    <section id="message-panel" class="panel" aria-label="查看文字" hidden>
+      <div id="message-content" class="message-content" tabindex="0"></div>
+      <div class="actions">
+        <button id="copy-message" class="primary" type="button">复制文字</button>
+        <a class="button" href="/">写一条</a>
+      </div>
+      <p id="message-status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="error-panel" class="panel" aria-label="暂时无法打开" hidden>
+      <p id="page-error" role="alert"></p>
+      <div class="actions">
+        <button id="retry-button" type="button">重新打开</button>
+        <a class="button" href="/">返回首页</a>
+      </div>
+    </section>
+    <noscript><p class="panel">请启用浏览器的 JavaScript 后使用。</p></noscript>
+  </main>
+</body>
+</html>
