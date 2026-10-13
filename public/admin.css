@@ -1,0 +1,50 @@
+.admin-main { width: min(100% - 32px, 1100px); }
+.header-actions { display: flex; align-items: center; gap: 20px; }
+.header-actions a { text-decoration: none; }
+.login-panel { max-width: 600px; }
+.audit-note { margin: 0 0 16px; }
+.records-panel { padding: 22px 24px; }
+.record-tabs { display: flex; gap: 20px; border-bottom: 1px solid #ededf0; }
+.tab-button { padding: 0 0 12px; border: 0; border-radius: 0; background: transparent; color: #73737a; font-weight: 500; }
+.tab-button[aria-pressed="true"] { color: #242427; border-bottom: 2px solid #34343b; }
+.tab-button:hover { background: transparent; color: #242427; }
+.refresh-button { margin: 0 0 10px auto; align-self: flex-start; }
+.filter-form { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; margin-top: 20px; }
+.filter-form > div { flex: 1 1 240px; max-width: 360px; }
+.filter-form label { font-size: 13px; }
+.filter-form input { padding: 9px 12px; }
+.filter-form button { padding: 9px 16px; }
+.table-container { overflow-x: auto; margin-top: 10px; border-radius: 4px; }
+.table-container:focus-visible { outline: 2px solid #5959b4; outline-offset: 3px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+th, td { padding: 13px 12px; border-bottom: 1px solid #ededf0; vertical-align: top; }
+th { background: #fafafb; color: #73737a; font-weight: 500; white-space: nowrap; }
+th:first-child, td:first-child { padding-left: 0; }
+th:last-child, td:last-child { padding-right: 0; }
+tbody tr:last-child td { border-bottom: 0; }
+.time-cell { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.code-cell { overflow-wrap: anywhere; min-width: 125px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+.ip-cell { min-width: 95px; max-width: 160px; }
+.row-actions { display: flex; gap: 10px; white-space: nowrap; }
+.row-actions button { font-size: 12px; }
+.empty-records { padding: 28px 0; color: #85858c; text-align: center; }
+.mobile-table-hint { display: none; }
+.pagination { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: 18px; padding-top: 18px; border-top: 1px solid #ededf0; font-size: 12px; }
+.pagination-buttons { display: flex; gap: 8px; }
+.pagination-buttons button { padding: 7px 13px; font-size: 12px; }
+dialog { width: min(100% - 32px, 680px); max-height: 85vh; margin: auto; padding: 24px; border: 1px solid #e4e4e8; border-radius: 12px; color: #242427; background: #fff; }
+dialog::backdrop { background: #24242766; }
+.dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.dialog-heading h2 { margin: 0; font-size: 19px; font-weight: 600; }
+#dialog-meta { overflow-wrap: anywhere; margin-bottom: 0; }
+#dialog-text { margin-top: 15px; }
+#dialog-status:empty { display: none; }
+@media (max-width: 600px) {
+  .mobile-table-hint { display: block; margin: 12px 0 0; }
+  .records-panel { padding: 18px; }
+  .header-actions { gap: 12px; }
+  .pagination { align-items: start; flex-direction: column; }
+  .pagination-buttons { align-self: flex-end; }
+  .filter-form > div { flex-basis: 100%; max-width: none; }
+  dialog { padding: 20px; }
+}

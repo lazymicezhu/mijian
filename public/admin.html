@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <title>管理后台 · 密笺</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/admin.css">
+  <script src="/admin.js" defer></script>
+</head>
+<body>
+  <main class="admin-main">
+    <header>
+      <h1>管理后台</h1>
+      <div class="header-actions">
+        <a class="text-button" href="/">返回首页</a>
+        <button id="admin-logout" class="text-button" type="button" hidden>退出管理</button>
+      </div>
+    </header>
+    <p class="intro">查看文字与访问记录</p>
+
+    <section id="admin-loading" class="panel" aria-label="加载中">
+      <p class="muted">正在检查登录状态…</p>
+    </section>
+
+    <section id="admin-login" class="panel login-panel" aria-label="管理员登录" hidden>
+      <form id="admin-login-form">
+        <label for="admin-password">管理员密码</label>
+        <input id="admin-password" type="password" autocomplete="current-password" placeholder="输入管理员密码" required maxlength="1024">
+        <p class="hint">请使用独立的管理员密码。</p>
+        <button id="admin-login-button" class="primary" type="submit">进入后台</button>
+        <p id="admin-login-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="admin-dashboard" hidden>
+      <p class="hint audit-note">访客编号用于区分浏览器，不代表真实身份；不同访客可能共用一个 IP。时间均为香港时间（UTC+8）。</p>
+      <div class="panel records-panel">
+        <nav class="record-tabs" aria-label="记录类型">
+          <button id="messages-tab" class="tab-button" type="button" aria-pressed="true">创建记录</button>
+          <button id="events-tab" class="tab-button" type="button" aria-pressed="false">解密记录</button>
+          <button id="refresh-records" class="text-button refresh-button" type="button">刷新</button>
+        </nav>
+
+        <form id="message-filter-form" class="filter-form" hidden>
+          <div>
+            <label for="message-filter">消息编号</label>
+            <input id="message-filter" type="text" placeholder="输入消息编号以筛选" autocomplete="off" spellcheck="false" maxlength="16">
+          </div>
+          <button id="filter-button" type="submit">筛选</button>
+          <button id="clear-filter" type="button">全部记录</button>
+        </form>
+
+        <p id="records-status" class="status" role="status" aria-live="polite"></p>
+        <div id="records-container" class="table-container" tabindex="0" aria-label="记录列表"></div>
+        <p class="hint mobile-table-hint">左右滑动表格可查看完整记录。</p>
+        <div class="pagination">
+          <span id="page-label" class="muted">第 1 页 · 每页最多 30 条</span>
+          <div class="pagination-buttons">
+            <button id="previous-page" type="button" disabled>上一页</button>
+            <button id="next-page" type="button" disabled>下一页</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <dialog id="message-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-heading">
+        <h2 id="dialog-title">文字内容</h2>
+        <button id="close-dialog" class="text-button" type="button">关闭</button>
+      </div>
+      <p id="dialog-meta" class="hint"></p>
+      <p id="dialog-status" class="status" role="status" aria-live="polite"></p>
+      <div id="dialog-text" class="message-content" tabindex="0"></div>
+    </dialog>
+    <noscript><p class="panel">请启用浏览器的 JavaScript 后使用。</p></noscript>
+  </main>
+</body>
+</html>

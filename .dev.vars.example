@@ -1,0 +1,7 @@
+# For local Cloudflare preview only. Copy to .dev.vars, then fill in both secrets.
+# Generate a key with: node -e "console.log(require('node:crypto').randomBytes(32).toString('base64'))"
+LOCAL_DEV=true
+ACCESS_PASSWORD=""
+ENCRYPTION_KEY=""
+# Separate administrator password, at least 12 UTF-8 bytes, different from ACCESS_PASSWORD.
+ADMIN_PASSWORD=""

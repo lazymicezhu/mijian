@@ -10,6 +10,15 @@
   "scripts": {
     "dev": "node server.mjs --dev",
     "start": "node server.mjs",
-    "test": "node --test tests/server.test.mjs"
+    "dev:cf": "wrangler pages dev public --d1 DB=00000000-0000-0000-0000-000000000001 --compatibility-date=2026-01-01 --port 8878",
+    "db:local": "wrangler d1 migrations apply DB --local --config wrangler.local.jsonc",
+    "build:cf": "wrangler pages functions build --outdir=.wrangler/build --compatibility-date=2026-01-01",
+    "test": "node --test tests/*.test.mjs",
+    "test:node": "node --test tests/server.test.mjs",
+    "test:cf": "node --test tests/cloudflare.test.mjs"
+  },
+  "devDependencies": {
+    "miniflare": "5.20261006.1-alpha",
+    "wrangler": "4.149.0"
   }
 }
